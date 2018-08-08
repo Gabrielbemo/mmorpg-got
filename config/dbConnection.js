@@ -1,25 +1,21 @@
 /* importar o mongodb */
 var mongo = require('mongodb');
 
-var connMongoDB = function () {
+var connMongoDB = function(){
+	console.log('Entrou na função de conexão');
+	var db = new mongo.Db(
+		'got',
+		new mongo.Server(
+			'localhost', //string contendo o endereço do servidor
+			27017, //porta de conexão
+			{}
+		),
+		{}
+	);
 
-    console.log('conecto no banco');
-    var db = new mongo.Db(
-        'got',
-        new mongo.Server(
-            'localhost', //string contendo o endereço do servidor
-            27017, //porta de conexão
-            {} // configurações opcionais
-        ),
-        {}// configurações opcionais
-    );
-
-    return db;
-
+	return db;
 }
 
-module.exports = function () {
-
-    return connMongoDB;
-
+module.exports = function(){
+	return connMongoDB;
 }
