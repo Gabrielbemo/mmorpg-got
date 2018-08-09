@@ -10,7 +10,7 @@ var connMongoDB = function(){
 			27017, //porta de conexão
 			{}
 		),
-		{}
+		{safe: false}
 	);
 
 	return db;
